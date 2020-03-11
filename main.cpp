@@ -24,12 +24,32 @@ Lunar Lander 2020 C++
 #include <iostream>
 #include <locale>
 
-#include "UI/SimpleUI.hpp"
-#include "UI/UserInterfaceHandler.hpp"
+#include "Domain/AccountManagement/UserAccounts.hpp"
+using namespace std;
+
+
 
 
 int main( /*int argc, char argv[] */ )
 {
+  UserAccounts tempAccount = new UserAccounts();
+  
+  userCredentials test = new userCredentials;
+  
+  string username, password;
+  cout << "Username: ";
+  cin >> username;
+  cout << endl;
+  cout << "Password: ";
+  cin >> password;
+  cout << endl;
+  
+  test.userName = username;
+  test.password = password;
+  
+  cout << tempAccount.isAuthenticated(test);
+  
+  /*
   try
   {
     std::cout << "\nLunar Lander system initializing ...\n\n";
@@ -72,4 +92,12 @@ int main( /*int argc, char argv[] */ )
   {
     std::cerr << "Fatal:  Uncaught (unknown type) exception\n";
   }
+  */
+  
+  
+  
+  
+  
+  
+  
 }
