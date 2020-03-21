@@ -5,7 +5,7 @@
 #include <memory>    // std::unique_ptr
 #include <string>
 
-#include "Domain/AccountManagement/LoginHandler.hpp"
+#include "LoginHandler.hpp"
 
 #include "TechnicalServices/Logging/LoggerHandler.hpp"
 #include "TechnicalServices/Persistence/PersistenceHandler.hpp"
@@ -14,10 +14,10 @@
 
 namespace Domain::AccountManagement
 {
-  class UserAccounts : public Domain::AccountManagement::AccountManagementHandler
+  class UserAccounts : public Domain::AccountManagement::LoginHandler
   {
     public:
-      using AccountManagementHandler::AccountManagementHandler;  // inherit constructors
+      using LoginHandler::LoginHandler;  // inherit constructors
       UserAccounts();
 
       // Operations

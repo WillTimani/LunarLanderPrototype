@@ -24,31 +24,19 @@ Lunar Lander 2020 C++
 #include <iostream>
 #include <locale>
 
-#include "Domain/AccountManagement/UserAccounts.hpp"
+#include "UI/LunarUI.hpp"
+#include "UI/UserInterfaceHandler.hpp"
+
+
 using namespace std;
-
-
-
 
 int main( /*int argc, char argv[] */ )
 {
-  UserAccounts tempAccount = new UserAccounts();
+
+	std::unique_ptr<UI::UserInterfaceHandler> userInterface( new UI::LunarUI ); // Hard coded to UI::SimpleUI for now
   
-  userCredentials test = new userCredentials;
-  
-  string username, password;
-  cout << "Username: ";
-  cin >> username;
-  cout << endl;
-  cout << "Password: ";
-  cin >> password;
-  cout << endl;
-  
-  test.userName = username;
-  test.password = password;
-  
-  cout << tempAccount.isAuthenticated(test);
-  
+  	userInterface->launch();
+
   /*
   try
   {

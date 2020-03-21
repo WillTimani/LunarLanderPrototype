@@ -1,6 +1,5 @@
 //UserAccounts.cpp
 
-
 #include <algorithm>    // std::any_of()
 #include <memory>       // make_unique<>()
 
@@ -8,9 +7,6 @@
 
 #include "TechnicalServices/Logging/Logger.hpp"
 #include "TechnicalServices/Persistence/SingletonDB.hpp"
-
-
-
 
 
 namespace Domain::AccountManagement
@@ -43,13 +39,13 @@ namespace Domain::AccountManagement
       // credentials I just need to verify the requested role is in the set of authorized roles.  Someday, if a user can sign in
       // with many roles combined, I may have to revisit this approach.  But for now, this is good enough.
       if(    credentials.userName   == credentialsFromDB.userName
-          && credentials.passPhrase == credentialsFromDB.passPhrase
+          && credentials.password == credentialsFromDB.password
           && std::any_of( credentialsFromDB.roles.cbegin(), credentialsFromDB.roles.cend(),
                           [&]( const std::string & role ) { return credentials.roles.size() > 0 && credentials.roles[0] == role; }
                         )
         ) return true;
     }
-    catch( const TechnicalServices::Persistence::PersistenceHandler::NoSuchUser & ) {}  // Catch and ignore this anticipated condition
+    catch( const TechnicalServices::Persistence::PersistenceHandler::InvalidLogin & ) {}  // Catch and ignore this anticipated condition
 
     return false;
   }

@@ -19,7 +19,7 @@ namespace TechnicalServices::Logging
       Logger( std::ostream & loggingStream = std::clog);  // default ctor
 
       // Operations
-      SimpleLogger & operator<< ( const std::string & message ) override;
+      Logger & operator<< ( const std::string & message ) override;
 
       // Destructor
       ~Logger() noexcept override;

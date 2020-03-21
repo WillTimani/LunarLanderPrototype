@@ -6,16 +6,16 @@
 #include <string>
 #include <vector>
 
-#include "Technical/Logging/LoggerHandler.hpp"
-#include "Technical/Persistence/PersistenceHandler.hpp"
+#include "TechnicalServices/Logging/LoggerHandler.hpp"
+#include "TechnicalServices/Persistence/PersistenceHandler.hpp"
 
 
 
 
-namespace Technical::Persistence
+namespace TechnicalServices::Persistence
 {
-  class LoginDB : public Technical::Persistence::PersistenceHandler
-  {
+  class LoginDB : public TechnicalServices::Persistence::PersistenceHandler {
+  
     public:
       using PersistenceHandler::PersistenceHandler;    // inherit constructors
       LoginDB();
@@ -26,7 +26,7 @@ namespace Technical::Persistence
       UserCredentials          findCredentialsByName( const std::string & name ) override;  // Returns credentials for specified user, throws NoSuchUser if user not found
 
 
-      ~SimpleDB() noexcept override;
+      ~LoginDB() noexcept override;
 
     private:
       std::unique_ptr<TechnicalServices::Logging::LoggerHandler>             _loggerPtr;

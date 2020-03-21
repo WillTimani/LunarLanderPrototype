@@ -41,7 +41,7 @@ namespace Domain::AccountManagement
   /*****************************************************************************
   ** Inline implementations
   ******************************************************************************/
-  inline AccountManagementHandler::~AccountManagementHandler() noexcept
+  inline LoginHandler::~LoginHandler() noexcept
   {}
 
 

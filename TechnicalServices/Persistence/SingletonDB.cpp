@@ -1,6 +1,6 @@
 //============================SingletonDB.cpp==========================//
 
-#include "TechnicalServices/Logging/SimpleLogger.hpp"
+#include "TechnicalServices/Logging/Logger.hpp"
 #include "TechnicalServices/Persistence/SingletonDB.hpp"
 
 
@@ -15,7 +15,7 @@ namespace TechnicalServices::Persistence
 
 
   SingletonDB::SingletonDB()
-  : _loggerPtr( std::make_unique<TechnicalServices::Logging::SimpleLogger>() )     // will replace these factory calls with abstract factory calls next increment
+  : _loggerPtr( std::make_unique<TechnicalServices::Logging::Logger>() )     // will replace these factory calls with abstract factory calls next increment
   {
     _logger << "Singleton DB being used and has been successfully initialized";
   }
