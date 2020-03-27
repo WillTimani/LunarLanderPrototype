@@ -3,6 +3,7 @@
 #pragma once
 
 #include <memory>    // std::unique_ptr
+#include <string>
 
 #include "Domain/AccountManagement/LoginHandler.hpp"
 
@@ -28,7 +29,8 @@ namespace UI
 
 
       // Operations
-      void launch() override;
+      void launch(std::string role);
+      void login() override;
 
 
       // Destructor

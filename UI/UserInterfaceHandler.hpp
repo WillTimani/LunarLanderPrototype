@@ -15,7 +15,7 @@ namespace UI
       UserInterfaceHandler(       UserInterfaceHandler && original )        = default;    // move ctor
 
       // Operations
-      virtual void launch() = 0;
+      virtual void login() = 0;
 
       // Abstract class destructor
       virtual ~UserInterfaceHandler() noexcept = 0;                                        // must be virtual and pure

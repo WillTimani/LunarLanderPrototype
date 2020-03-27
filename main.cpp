@@ -35,7 +35,7 @@ int main( /*int argc, char argv[] */ )
 
 	std::unique_ptr<UI::UserInterfaceHandler> userInterface( new UI::LunarUI ); // Hard coded to UI::SimpleUI for now
   
-  	userInterface->launch();
+  	userInterface->login();
 
   /*
   try

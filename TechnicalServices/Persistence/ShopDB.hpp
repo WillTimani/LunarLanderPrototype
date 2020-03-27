@@ -1,4 +1,4 @@
-//========================LoginDB.hpp=====================//
+//========================ShopDB.hpp=====================//
 
 #pragma once
 
@@ -13,19 +13,29 @@
 
 namespace TechnicalServices::Persistence
 {
-  class LoginDB : public TechnicalServices::Persistence::PersistenceHandler {
+
+  struct shopObject
+  {
+    std::string name;
+    int price; 
+  };
+
+
+  class ShopDB : public TechnicalServices::Persistence::PersistenceHandler {
   
     public:
       using PersistenceHandler::PersistenceHandler;    // inherit constructors
-      LoginDB();
+      ShopDB();
 
+      // Operations 
+      std::vector<shopObject> findShopItems();
 
-      // Operations
+      // not used
       std::vector<std::string> findRoles()                                       override;  // Returns list of all legal roles
       UserCredentials          findCredentialsByName( const std::string & name ) override;  // Returns credentials for specified user, throws NoSuchUser if user not found
 
 
-      ~LoginDB() noexcept override;
+      ~ShopDB() noexcept override;
 
     private:
       std::unique_ptr<TechnicalServices::Logging::LoggerHandler>             _loggerPtr;

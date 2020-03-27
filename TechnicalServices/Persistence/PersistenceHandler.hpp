@@ -17,6 +17,7 @@ namespace TechnicalServices::Persistence
     std::vector<std::string> roles;
   };
 
+
   class PersistenceHandler
   {
     public:
