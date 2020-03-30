@@ -1,4 +1,4 @@
-//SpaceShop.cpp
+//=================================== SpaceShop.cpp ===================================//
 
 #include <memory>
 #include <string>
@@ -12,7 +12,7 @@ namespace Domain::Spaceport
 {
 
 	SpaceShop::SpaceShop()
-	: _loggerPtr( std::make_unique<TechnicalServices::Logging::Logger>() )     // will replace these factory calls with abstract factory calls next increment
+	: _loggerPtr( std::make_unique<TechnicalServices::Logging::Logger>() )     
   	{
     	_database = std::make_unique<TechnicalServices::Persistence::ShopDB>();
 		options = _database->findShopItems();

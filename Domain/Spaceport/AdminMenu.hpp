@@ -1,3 +1,5 @@
+//==================================== AdminMenu ============================//
+
 #pragma once
 
 #include <memory>
@@ -20,7 +22,6 @@ namespace Domain::Spaceport
 
 
       // Destructor
-      // Pure virtual destructor helps force the class to be abstract, but must still be implemented
      ~AdminMenu() noexcept override;
   }; // class AdminMenu
 

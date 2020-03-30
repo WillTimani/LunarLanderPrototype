@@ -1,8 +1,10 @@
+//====================================== Ship.hpp =============================//
+
 #pragma once
 
 namespace Domain::Spaceport
 {
-  // Library Package within the Domain Layer Abstract class
+  
   class Ship
   {
     public:
@@ -14,16 +16,13 @@ namespace Domain::Spaceport
       // Operations
 
       // Destructor
-      // Pure virtual destructor helps force the class to be abstract, but must still be implemented
       virtual ~Ship() noexcept = 0;
 
     protected:
-      // Copy assignment operators, protected to prevent mix derived-type assignments
       Ship & operator=( const Ship &  rhs ) = default;  // copy assignment
       Ship & operator=(       Ship && rhs ) = default;  // move assignment
 
   };    // class Ship
-
 
 
 

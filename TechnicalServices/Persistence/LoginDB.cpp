@@ -12,7 +12,7 @@ namespace TechnicalServices::Persistence
 {
 
 	LoginDB::LoginDB()
-	: _loggerPtr( std::make_unique<TechnicalServices::Logging::Logger>() )     // will replace these factory calls with abstract factory calls next increment
+	: _loggerPtr( std::make_unique<TechnicalServices::Logging::Logger>() )     
   	{
     	_logger << "Login DB being used and has been successfully initialized";
   	}

@@ -7,15 +7,15 @@
 #include <string>                                                                     // string, getline()
 #include <vector>
 
-#include "Domain/AccountManagement/UserAccounts.hpp"                                  // Include for now - will replace next increment
+#include "Domain/AccountManagement/UserAccounts.hpp"                                
 #include "Domain/Spaceport/Menu.hpp"
 #include "Domain/Spaceport/SpaceShop.hpp"
 #include "Domain/Spaceport/Settings.hpp"
 #include "Domain/MissionElements/Mission.hpp"
 
 #include "TechnicalServices/Logging/LoggerHandler.hpp"
-#include "TechnicalServices/Logging/Logger.hpp"                                 // Include for now - will replace next increment
-#include "TechnicalServices/Persistence/SingletonDB.hpp"                              // Include for now - will replace next increment
+#include "TechnicalServices/Logging/Logger.hpp"                              
+#include "TechnicalServices/Persistence/SingletonDB.hpp"                             
 
 #include "UI/LunarUI.hpp"
 
@@ -23,9 +23,9 @@ namespace UI
 {
   // Default constructor
   LunarUI::LunarUI()
-  : _accounts      ( std::make_unique<Domain::AccountManagement::UserAccounts>()  ),   // will replace these factory calls with abstract factory calls in the next increment
-    _loggerPtr     ( std::make_unique<TechnicalServices::Logging::Logger>() ),   // will replace these factory calls with abstract factory calls in the next increment
-    _persistentData( TechnicalServices::Persistence::SingletonDB::instance()      )    // will replace these factory calls with abstract factory calls in the next increment
+  : _accounts      ( std::make_unique<Domain::AccountManagement::UserAccounts>()  ),   
+    _loggerPtr     ( std::make_unique<TechnicalServices::Logging::Logger>() ),   
+    _persistentData( TechnicalServices::Persistence::SingletonDB::instance()      )   
   {
     _logger << "Lunar UI being used and has been successfully initialized";
   }
@@ -70,6 +70,8 @@ namespace UI
     	missionControl->startMission();
 
     	_logger << "Mission Started";
+
+    	std::cout << missionControl->getTurnStatement() << std::endl;
 
     	unsigned turnSelection;
     	unsigned turnResult;

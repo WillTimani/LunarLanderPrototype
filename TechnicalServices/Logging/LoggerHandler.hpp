@@ -22,7 +22,6 @@ namespace TechnicalServices::Logging
       virtual LoggerHandler & operator<< ( const std::string & message ) = 0;
 
       // Destructor
-      // Pure virtual destructor helps force the class to be abstract, but must still be implemented
       virtual ~LoggerHandler() noexcept = 0;
 
 

@@ -12,7 +12,7 @@ namespace TechnicalServices::Persistence
 {
 	
 	ShopDB::ShopDB()
-	: _loggerPtr( std::make_unique<TechnicalServices::Logging::Logger>() )     // will replace these factory calls with abstract factory calls next increment
+	: _loggerPtr( std::make_unique<TechnicalServices::Logging::Logger>() )  
   	{
     	_logger << "Shop DB being used and has been successfully initialized";
   	}
@@ -40,8 +40,6 @@ namespace TechnicalServices::Persistence
 
 	UserCredentials ShopDB::findCredentialsByName( const std:: string & name){
 	}
-
-
 
 
 

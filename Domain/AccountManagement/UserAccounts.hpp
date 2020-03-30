@@ -1,4 +1,4 @@
-//UserAccounts.hpp
+//========================== UserAccounts.hpp ============================//
 
 #pragma once
 
@@ -29,13 +29,9 @@ namespace Domain::AccountManagement
 
 
     private:
-      // These smart pointers hold pointers to lower architectural layer's interfaces
       TechnicalServices::Persistence::PersistenceHandler &   _persistentData;
       std::unique_ptr<TechnicalServices::Logging::LoggerHandler>             _loggerPtr;
 
-
-      // convenience reference object enabling standard insertion syntax
-      // This line must be physically after the definition of _loggerPtr
       TechnicalServices::Logging::LoggerHandler                            & _logger = *_loggerPtr;
   };
 } // namespace Domain::AccountManagement

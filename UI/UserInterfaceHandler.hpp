@@ -18,7 +18,7 @@ namespace UI
       virtual void login() = 0;
 
       // Abstract class destructor
-      virtual ~UserInterfaceHandler() noexcept = 0;                                        // must be virtual and pure
+      virtual ~UserInterfaceHandler() noexcept = 0;                                       
 
     protected:
       // Copy assignment operators, protected to prevent mix derived-type assignments

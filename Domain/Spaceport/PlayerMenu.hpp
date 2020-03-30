@@ -21,7 +21,7 @@ namespace Domain::Spaceport
       // Destructor
       // Pure virtual destructor helps force the class to be abstract, but must still be implemented
      ~PlayerMenu() noexcept override;
-  }; // class BorrowerSession
+  }; // class PlayerMenu
 
 
 

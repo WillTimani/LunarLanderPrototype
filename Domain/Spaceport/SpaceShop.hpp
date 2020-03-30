@@ -1,4 +1,4 @@
-//SpaceShop.hpp
+//=========================================== SpaceShop.hpp ==============================//
 
 #include <string>
 #include <vector>

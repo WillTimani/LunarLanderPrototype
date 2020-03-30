@@ -16,7 +16,7 @@ namespace TechnicalServices::Logging
     public:
       //Constructors
       using LoggerHandler::LoggerHandler;                       // inherent constructors
-      Logger( std::ostream & loggingStream = std::clog);  // default ctor
+      Logger( std::ostream & loggingStream = std::clog);  
 
       // Operations
       Logger & operator<< ( const std::string & message ) override;

@@ -1,4 +1,4 @@
-// Shop.hpp
+//========================== Shop.hpp =====================================//
 
 #pragma once
 
@@ -19,7 +19,7 @@ namespace Domain::Spaceport
       virtual bool purchaseItem(unsigned selection) = 0;
 
       // Abstract class destructor
-      virtual ~Shop() noexcept = 0;                                        // must be virtual and pure
+      virtual ~Shop() noexcept = 0;                                        
 
     protected:
       // Copy assignment operators, protected to prevent mix derived-type assignments

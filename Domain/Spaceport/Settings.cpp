@@ -1,4 +1,4 @@
-//=====================Settings.cpp==================//
+//===================== Settings.cpp ==================//
 
 #include <string>
 #include <vector>

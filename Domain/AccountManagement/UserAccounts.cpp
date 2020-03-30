@@ -1,4 +1,4 @@
-//UserAccounts.cpp
+//============================== UserAccounts.cpp ============================//
 
 #include <algorithm>    // std::any_of()
 #include <memory>       // make_unique<>()
@@ -13,8 +13,8 @@ namespace Domain::AccountManagement
 {
   // Default constructor
   UserAccounts::UserAccounts()
-  : _persistentData( TechnicalServices::Persistence::SingletonDB::instance() ),        // will replace hard coded implementation class next increment
-    _loggerPtr     ( std::make_unique<TechnicalServices::Logging::Logger>() )    // will replace hard coded implementation class next increment
+  : _persistentData( TechnicalServices::Persistence::SingletonDB::instance() ),       
+    _loggerPtr     ( std::make_unique<TechnicalServices::Logging::Logger>() )   
   {
     _logger << "UserAccounts being used and has been successfully initialized";
   }
