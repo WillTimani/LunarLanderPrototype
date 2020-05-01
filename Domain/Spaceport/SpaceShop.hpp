@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>    // std::unique_ptr
 
-#include "Domain/Spaceport/Shop.hpp"
+#include "Domain/Spaceport/ShopHandler.hpp"
 #include "TechnicalServices/Persistence/ShopDB.hpp"
 #include "TechnicalServices/Logging/LoggerHandler.hpp"
 
@@ -14,18 +14,18 @@
 namespace Domain::Spaceport
 {
 
-	class SpaceShop : public Domain::Spaceport::Shop
+	class SpaceShop : public Domain::Spaceport::ShopHandler
 	{
 
 		public:
 			//Constructors
-			using Shop::Shop;
+			using ShopHandler::ShopHandler;
 			SpaceShop();
 
 			//Operations
 			bool contactTransactionService() override;
 			bool purchaseItem(unsigned select) override;
-			std::vector<std::string> getOptions();
+			std::vector<std::string> getOptions() override;
 
 			//Destructor
 			~SpaceShop() noexcept override;

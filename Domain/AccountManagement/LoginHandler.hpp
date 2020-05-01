@@ -24,6 +24,9 @@ namespace Domain::AccountManagement
       // Operations
       virtual bool isAuthenticated( const UserCredentials & credentials ) = 0;
 
+      // Object Factory returning a UserAccounts object
+      static std::unique_ptr<LoginHandler> createAccounts();
+
 
       // Abstract class destructor
       virtual ~LoginHandler() noexcept = 0;  // must be virtual and pure

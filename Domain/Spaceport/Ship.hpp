@@ -14,6 +14,11 @@ namespace Domain::Spaceport
       Ship(       Ship && original )  = default;        // move ctor
 
       // Operations
+      virtual void activateThrusters() = 0;
+      virtual void deactivateThrusters() = 0; 
+
+      // Object Factory returning a Lander Object
+      static Ship * createLander();
 
       // Destructor
       virtual ~Ship() noexcept = 0;
@@ -32,6 +37,5 @@ namespace Domain::Spaceport
   ******************************************************************************/
   inline Ship::~Ship() noexcept
   {}
-
 
 } // namespace Domain::Spaceport

@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "Domain/AccountManagement/UserAccounts.hpp"                                
-#include "Domain/Spaceport/Menu.hpp"
+#include "Domain/Spaceport/Session.hpp"
 #include "Domain/Spaceport/SpaceShop.hpp"
 #include "Domain/Spaceport/Settings.hpp"
 #include "Domain/MissionElements/Mission.hpp"
@@ -23,10 +23,12 @@ namespace UI
 {
   // Default constructor
   LunarUI::LunarUI()
-  : _accounts      ( std::make_unique<Domain::AccountManagement::UserAccounts>()  ),   
-    _loggerPtr     ( std::make_unique<TechnicalServices::Logging::Logger>() ),   
-    _persistentData( TechnicalServices::Persistence::SingletonDB::instance()      )   
+  : _loggerPtr( std::make_unique<TechnicalServices::Logging::Logger>() ),
+    _persistentData( TechnicalServices::Persistence::SingletonDB::instance() )
   {
+
+    _accounts = Domain::AccountManagement::LoginHandler::createAccounts();   
+    
     _logger << "Lunar UI being used and has been successfully initialized";
   }
 
@@ -44,11 +46,11 @@ namespace UI
   	std::vector<std::string> roleLegalValues = _persistentData.findRoles();
 
   	// 4) Fetch functionality options for this role
-    std::unique_ptr<Domain::Spaceport::MenuHandler> menuControl = Domain::Spaceport::MenuHandler::createSession( role );
+    std::unique_ptr<Domain::Spaceport::SessionHandler> sessionControl = Domain::Spaceport::SessionHandler::createSession( role );
 
     std::cout << "Main Menu" << std::endl;
 
-    std::vector<std::string> commands = menuControl->getCommands();
+    std::vector<std::string> commands = sessionControl->getCommands();
     unsigned menuSelection;
     do
     {
@@ -65,7 +67,8 @@ namespace UI
     // Start Mission
     if(menuSelection == 0)
     {
-    	std::unique_ptr<Domain::MissionElements::Mission> missionControl = std::make_unique<Domain::MissionElements::Mission>();;
+    	std::unique_ptr<Domain::MissionElements::MissionHandler> missionControl = Domain::MissionElements::MissionHandler::createMission();
+      //std::make_unique<Domain::MissionElements::Mission>();;
 
     	missionControl->startMission();
 
@@ -108,7 +111,7 @@ namespace UI
     } else if (menuSelection == 1){
 
     } else if (menuSelection == 2) {
-    	std::unique_ptr<Domain::Spaceport::SpaceShop> shopControl = std::make_unique<Domain::Spaceport::SpaceShop>();
+    	std::unique_ptr<Domain::Spaceport::ShopHandler> shopControl = Domain::Spaceport::ShopHandler::createSpaceShop();
 
 	    std::vector<std::string> shopOptions = shopControl->getOptions();
     	do{

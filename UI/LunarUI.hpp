@@ -25,7 +25,7 @@ namespace UI
 
 
       // Operations
-      void launch(std::string role);
+      void launch(std::string role) override;
       void login() override;
 
 

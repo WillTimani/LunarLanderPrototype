@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <string>
+
 
 namespace UI
 {
@@ -16,6 +18,7 @@ namespace UI
 
       // Operations
       virtual void login() = 0;
+      virtual void launch(std::string role) = 0;
 
       // Abstract class destructor
       virtual ~UserInterfaceHandler() noexcept = 0;                                       

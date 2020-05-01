@@ -1,29 +1,38 @@
-//================================= MissionHandler.hpp ============================//
+//====================================== MissionHandler.hpp =============================//
 
 #pragma once
 
 namespace Domain::MissionElements
 {
+  
+  class MissionHandler
+  {
+    public:
+      // Constructors
+      MissionHandler()                                          = default;        // default ctor
+      MissionHandler( const MissionHandler &  original )  = default;        // copy ctor
+      MissionHandler(       MissionHandler && original )  = default;        // move ctor
 
-	class MissionHandler
-	{
-	    public:
-	      // Constructors
-	      MissionHandler()                                          = default;        // default ctor
-	      MissionHandler( const MissionHandler &  original )  = default;        // copy ctor
-	      MissionHandler(       MissionHandler && original )  = default;        // move ctor
+      // Operations
+      virtual void startMission() = 0;
+      virtual void endMission() = 0;
+      virtual void requestThrusterChange(int c) = 0;
 
-	      // Operations
+      virtual bool missionStatus() = 0;
+      virtual int processTurn() = 0;
+      virtual std::string getTurnStatement() = 0;
 
-	      // Destructor
-	      virtual ~MissionHandler() noexcept = 0;
+      static std::unique_ptr<MissionHandler> createMission();
 
-	    protected:
-	      // Copy assignment operators, protected to prevent mix derived-type assignments
-	      MissionHandler & operator=( const MissionHandler &  rhs ) = default;  // copy assignment
-	      MissionHandler & operator=(       MissionHandler && rhs ) = default;  // move assignment
+      // Destructor
+      virtual ~MissionHandler() noexcept = 0;
+
+    protected:
+      MissionHandler & operator=( const MissionHandler &  rhs ) = default;  // copy assignment
+      MissionHandler & operator=(       MissionHandler && rhs ) = default;  // move assignment
 
   };    // class MissionHandler
+
 
 
 
@@ -34,4 +43,4 @@ namespace Domain::MissionElements
   {}
 
 
-} // namespace Domain::Spaceport
+} // namespace Domain::MissionElements

@@ -35,6 +35,9 @@ namespace TechnicalServices::Persistence
       virtual std::vector<std::string> findRoles() = 0; // Returns list of roles
       virtual UserCredentials findCredentialsByName(const std::string & name) = 0;   // Returns credentials for specified user, throws NoSuchUser if user not found
 
+      // Object Factory returning a PersistentData object
+      static std::unique_ptr<PersistenceHandler> createPersistentData();
+
       // Destructor
       virtual ~PersistenceHandler() noexcept = 0;
 
