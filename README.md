@@ -23,8 +23,8 @@ Sample invocation showing a navigation of the in-game store:
 
 ![StoreSampleRun](https://github.com/WillTimani/LunarLanderPrototype/blob/master/Images/StoreSampleRun.png)
 
-Design and Implementation created by:
-William Timani
-Matthew Quinlan 
-Thomas Smith
-Vijay Duggirala
+Design and Implementation created by:\n
+William Timani\n
+Matthew Quinlan\n
+Thomas Smith\n
+Vijay Duggirala\n
